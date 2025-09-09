@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lembrete de Pagamento PIX</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+        :root {
+            --whatsapp-green-dark: #075E54;
+            --whatsapp-green-light: #25D366;
+            --whatsapp-blue-link: #34B7F1;
+            --whatsapp-incoming-bg: #FFFFFF;
+            --whatsapp-outgoing-bg: #DCF8C6;
+            --whatsapp-background: #E5DDD5;
+            --whatsapp-system-message-bg: #FEF3B8;
+            --whatsapp-text-primary: #303030;
+            --whatsapp-text-secondary: #667781;
+            --whatsapp-border: #E9EDEF;
+            --disabled-color: #B0B0B0;
+            --border-radius: 8px;
+            --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--whatsapp-background);
+            color: var(--whatsapp-text-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        #root {
+            width: 100%;
+            max-width: 600px;
+            height: calc(100vh - 16px);
+            max-height: 800px;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
