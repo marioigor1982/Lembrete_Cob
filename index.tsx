@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 
@@ -105,28 +106,35 @@ Caso tenha alguma problema, favor entrar em contato no nº ${senderContact}`;
             whiteSpace: 'pre-wrap',
             wordBreak: 'break-word',
         },
+        pixContainer: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            backgroundColor: '#f0f0f0',
+            padding: '8px 12px',
+            borderRadius: 'var(--border-radius)',
+            border: '1px solid #ddd',
+            marginBottom: '8px',
+        },
         pixCode: {
             fontFamily: 'monospace',
             fontSize: '12px',
-            backgroundColor: '#f0f0f0',
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ddd',
             overflowX: 'auto',
-            display: 'block',
-            marginBottom: '8px',
             wordBreak: 'break-all',
+            marginRight: '12px',
+            flexGrow: 1,
         },
         copyButton: {
-            backgroundColor: 'transparent',
-            color: 'var(--whatsapp-blue-link)',
+            backgroundColor: 'var(--whatsapp-green-light)',
+            color: 'white',
             border: 'none',
-            padding: '8px 0',
+            padding: '6px 12px',
             fontWeight: 'bold',
-            fontSize: '14px',
+            fontSize: '13px',
             cursor: 'pointer',
-            textAlign: 'right',
-            width: '100%',
+            borderRadius: '16px',
+            flexShrink: 0,
+            transition: 'background-color 0.2s',
         },
         footer: {
             display: 'flex',
@@ -175,13 +183,15 @@ Caso tenha alguma problema, favor entrar em contato no nº ${senderContact}`;
                         <br />
                         Segue um lembrete referente ao PIX do desenvolvimento do seu site, segue abaixo o PIX:
                     </p>
-                    <code style={styles.pixCode}>{pixCode}</code>
+                    <div style={styles.pixContainer}>
+                        <code style={styles.pixCode}>{pixCode}</code>
+                        <button style={styles.copyButton} onClick={handleCopyPix}>
+                            {copyButtonText}
+                        </button>
+                    </div>
                     <p style={styles.messageText}>
                         Caso tenha alguma problema, favor entrar em contato no nº {senderContact}
                     </p>
-                    <button style={styles.copyButton} onClick={handleCopyPix}>
-                        {copyButtonText}
-                    </button>
                 </div>
             </main>
 
