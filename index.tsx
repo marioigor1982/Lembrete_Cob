@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 
 const App = () => {
@@ -6,7 +6,6 @@ const App = () => {
     const recipientNumber = '5562991619560'; // Updated for testing
     const senderContact = '(62) 99161-9560';
     const pixCode = '00020126950014br.gov.bcb.pix013688afc910-19c6-4790-8134-239dfb2319060233Site 7playconnect.com parcela 2/45204000053039865406250.005802BR5919Mario Igor de Jesus6002NA62070503***63046409';
-    const targetDate = new Date('2025-09-10T12:00:00');
 
     const messageToSend = `7 Play Connect, tudo bem?
 Segue um lembrete referente ao PIX do desenvolvimento do seu site, segue abaixo o PIX:
@@ -16,36 +15,14 @@ ${pixCode}
 Caso tenha alguma problema, favor entrar em contato no nº ${senderContact}`;
 
     // --- State ---
-    const [status, setStatus] = useState({
-        isReady: false,
-        message: 'Verificando data...',
-    });
+    const status = {
+        isReady: true,
+        message: 'Mensagem pronta para envio.',
+    };
     const [copyButtonText, setCopyButtonText] = useState('Copiar PIX');
-
-    // --- Effects ---
-    useEffect(() => {
-        const checkDate = () => {
-            const now = new Date();
-            const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-            const targetDay = new Date(targetDate.getFullYear(), targetDate.getMonth(), targetDate.getDate());
-
-            if (today.getTime() === targetDay.getTime()) {
-                setStatus({ isReady: true, message: 'Hoje é o dia do envio!' });
-            } else if (today.getTime() < targetDay.getTime()) {
-                setStatus({ isReady: false, message: `Aguardando ${targetDate.toLocaleDateString('pt-BR')}` });
-            } else {
-                setStatus({ isReady: false, message: 'Data de envio expirada.' });
-            }
-        };
-
-        checkDate();
-        const interval = setInterval(checkDate, 60000);
-        return () => clearInterval(interval);
-    }, []);
 
     // --- Handlers ---
     const handleSendMessage = () => {
-        if (!status.isReady) return;
         const encodedMessage = encodeURIComponent(messageToSend);
         const whatsappUrl = `https://wa.me/${recipientNumber}?text=${encodedMessage}`;
         window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
