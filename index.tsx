@@ -1,17 +1,19 @@
-
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 
 const App = () => {
     // --- Configuration ---
-    const recipientNumber = '5562991619560'; // Updated for testing
+    const recipientNumber = '5511945316116'; // Updated number
     const senderContact = '(62) 99161-9560';
-    const pixCode = '00020126950014br.gov.bcb.pix013688afc910-19c6-4790-8134-239dfb2319060233Site 7playconnect.com parcela 2/45204000053039865406250.005802BR5919Mario Igor de Jesus6002NA62070503***63046409';
+    const pixCode = '00020126950014br.gov.bcb.pix013688afc910-19c6-4790-8134-239dfb2319060233Site 7playconnect.com parcela 2/452040000053039865406250.005802BR5919Mario Igor de Jesus6002NA62070503***63046409';
 
     const messageToSend = `7 Play Connect, tudo bem?
-Segue um lembrete referente ao PIX do desenvolvimento do seu site, segue abaixo o PIX:
+Segue um lembrete referente ao PIX do desenvolvimento do seu site.
 
+Para pagar, copie o código abaixo e cole no seu aplicativo do banco:
+\`\`\`
 ${pixCode}
+\`\`\`
 
 Caso tenha alguma problema, favor entrar em contato no nº ${senderContact}`;
 
